@@ -1,0 +1,926 @@
+/* =================================
+   基本設定
+================================= */
+
+:root {
+
+    /* ⭐ 你之後主要改這裡 */
+
+    --blue: #657d86;
+    --blue-dark: #455b63;
+    --blue-light: #dce4e5;
+
+    --gray-1: #f3f4f3;
+    --gray-2: #e5e7e6;
+    --gray-3: #b9c0c1;
+
+    --black: #252a2c;
+    --white: #ffffff;
+
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    margin: 0;
+
+    background: var(--gray-1);
+
+    color: var(--black);
+
+    font-family:
+        Arial,
+        "Noto Sans TC",
+        sans-serif;
+
+    letter-spacing: 0.03em;
+}
+
+
+a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+button {
+    font-family: inherit;
+
+    cursor: pointer;
+}
+
+
+/* =================================
+   NAVBAR
+================================= */
+
+.navbar {
+
+    height: 72px;
+
+    padding: 0 5%;
+
+    background: rgba(243,244,243,0.95);
+
+    border-bottom:
+        1px solid var(--gray-2);
+
+    display: flex;
+
+    align-items: center;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    backdrop-filter: blur(10px);
+}
+
+
+.logo {
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+
+.logo span {
+
+    font-weight: 400;
+
+    color: var(--blue-dark);
+
+    margin-left: 4px;
+}
+
+
+nav {
+
+    display: flex;
+
+    gap: 30px;
+
+    margin-left: auto;
+
+    margin-right: 35px;
+}
+
+
+nav a {
+
+    font-size: 13px;
+
+    color: #777f81;
+
+    transition: 0.2s;
+}
+
+
+nav a:hover {
+
+    color: var(--black);
+}
+
+
+nav a.active {
+
+    color: var(--black);
+
+    font-weight: 600;
+}
+
+
+.cart-button {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid var(--gray-3);
+
+    background: transparent;
+
+    position: relative;
+}
+
+
+.cart-button span {
+
+    position: absolute;
+
+    top: -5px;
+
+    right: -4px;
+
+    width: 17px;
+
+    height: 17px;
+
+    background: var(--blue-dark);
+
+    color: white;
+
+    font-size: 9px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =================================
+   HERO
+================================= */
+
+.hero {
+
+    min-height: 570px;
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    background:
+
+        linear-gradient(
+            120deg,
+            #d7dfe0,
+            #edf0ef
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 70px 8%;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(101,125,134,0.13);
+
+    right: -150px;
+
+    bottom: -200px;
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.small-title {
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.2em;
+
+    color: var(--blue-dark);
+
+    margin-bottom: 15px;
+}
+
+
+.hero h1 {
+
+    font-size: clamp(
+        45px,
+        7vw,
+        85px
+    );
+
+    line-height: 1.05;
+
+    letter-spacing: -0.05em;
+
+    margin: 0 0 25px;
+}
+
+
+.hero-text {
+
+    font-size: 14px;
+
+    color: #687174;
+
+    margin-bottom: 35px;
+}
+
+
+.main-button {
+
+    display: inline-block;
+
+    padding: 15px 30px;
+
+    background: var(--black);
+
+    color: white;
+
+    font-size: 12px;
+
+    transition: 0.25s;
+}
+
+
+.main-button:hover {
+
+    background: var(--blue-dark);
+
+    transform: translateY(-2px);
+}
+
+
+/* =================================
+   NOTICE
+================================= */
+
+.notice {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 22px 5%;
+
+    background: white;
+
+    border-bottom:
+        1px solid var(--gray-2);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+}
+
+
+.notice-title {
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.15em;
+
+    color: var(--blue-dark);
+}
+
+
+.notice-content strong {
+
+    font-size: 13px;
+}
+
+
+.notice-content p {
+
+    margin: 5px 0 0;
+
+    font-size: 11px;
+
+    color: #858d8f;
+}
+
+
+/* =================================
+   商品區
+================================= */
+
+.products-section {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 100px 5%;
+}
+
+
+.section-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 45px;
+}
+
+
+.section-header h2 {
+
+    margin: 0;
+
+    font-size: 36px;
+
+    letter-spacing: -0.04em;
+}
+
+
+.category-menu {
+
+    display: flex;
+
+    gap: 25px;
+}
+
+
+.category-menu button {
+
+    border: 0;
+
+    background: transparent;
+
+    padding: 5px 0;
+
+    font-size: 11px;
+
+    letter-spacing: 0.1em;
+
+    color: #858d8f;
+
+    border-bottom:
+        1px solid transparent;
+}
+
+
+.category-menu button.selected {
+
+    color: var(--black);
+
+    border-color: var(--black);
+}
+
+
+/* =================================
+   商品 Grid
+================================= */
+
+.product-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 60px 20px;
+}
+
+
+.product {
+
+    background: transparent;
+}
+
+
+.product-image {
+
+    height: 390px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+.image-1 {
+    background: #d8e0e1;
+}
+
+
+.image-2 {
+    background: #c8d1d3;
+}
+
+
+.image-3 {
+    background: #e0e2df;
+}
+
+
+.image-4 {
+    background: #d1d3d1;
+}
+
+
+.image-5 {
+    background: #dce2e1;
+}
+
+
+.image-6 {
+    background: #c5ced0;
+}
+
+
+/* 模擬商品 */
+
+.fake-product {
+
+    width: 180px;
+
+    height: 240px;
+
+    background:
+        rgba(255,255,255,0.5);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 23px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    color: #748288;
+
+    box-shadow:
+        15px 20px 40px
+        rgba(50,60,60,0.08);
+}
+
+
+.product-number {
+
+    position: absolute;
+
+    left: 15px;
+
+    top: 15px;
+
+    font-size: 10px;
+
+    color: #687174;
+}
+
+
+.product-info {
+
+    padding: 17px 2px;
+}
+
+
+.product-category {
+
+    font-size: 9px;
+
+    letter-spacing: 0.15em;
+
+    color: #8a9294;
+
+    margin: 0 0 8px;
+}
+
+
+.product-info h3 {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    margin: 0 0 20px;
+}
+
+
+.product-bottom {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.product-bottom strong {
+
+    font-size: 14px;
+}
+
+
+.product-bottom a {
+
+    font-size: 11px;
+
+    color: var(--blue-dark);
+}
+
+
+.product-bottom a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =================================
+   已截止商品
+================================= */
+
+.product.closed {
+
+    opacity: 0.55;
+}
+
+
+.closed-label {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 15px;
+
+    padding: 7px 10px;
+
+    background: rgba(37,42,44,0.85);
+
+    color: white;
+
+    font-size: 10px;
+}
+
+
+.disabled-text {
+
+    color: #999;
+
+    font-size: 11px;
+}
+
+
+/* =================================
+   訂購流程
+================================= */
+
+.process {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 90px 5%;
+
+    border-top:
+        1px solid var(--gray-2);
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 2fr;
+
+    gap: 80px;
+}
+
+
+.process-title h2 {
+
+    font-size: 30px;
+
+    margin: 0;
+
+    letter-spacing: -0.04em;
+}
+
+
+.steps {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.step {
+
+    border-top:
+        1px solid var(--black);
+
+    padding-top: 15px;
+}
+
+
+.step span {
+
+    font-size: 11px;
+
+    color: var(--blue-dark);
+
+    font-weight: 700;
+}
+
+
+.step h3 {
+
+    font-size: 14px;
+
+    margin-top: 45px;
+}
+
+
+.step p {
+
+    font-size: 11px;
+
+    color: #858d8f;
+
+    line-height: 1.8;
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 35px 5%;
+
+    border-top:
+        1px solid var(--gray-2);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+footer p {
+
+    font-size: 10px;
+
+    color: #8a9294;
+}
+
+
+/* =================================
+   平板
+================================= */
+
+@media (max-width: 900px) {
+
+    .product-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .process {
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+    }
+
+}
+
+
+/* =================================
+   手機
+================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+
+        padding: 0 18px;
+
+    }
+
+
+    nav {
+
+        gap: 15px;
+
+        margin-right: 15px;
+
+    }
+
+
+    nav a {
+
+        font-size: 11px;
+
+    }
+
+
+    .hero {
+
+        min-height: 500px;
+
+        padding: 50px 25px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 48px;
+
+    }
+
+
+    .notice {
+
+        display: block;
+
+        padding: 18px 25px;
+
+    }
+
+
+    .notice-title {
+
+        margin-bottom: 8px;
+
+    }
+
+
+    .products-section {
+
+        padding: 65px 18px;
+
+    }
+
+
+    .section-header {
+
+        display: block;
+
+    }
+
+
+    .category-menu {
+
+        margin-top: 25px;
+
+    }
+
+
+    .product-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 35px 12px;
+
+    }
+
+
+    .product-image {
+
+        height: 230px;
+
+    }
+
+
+    .fake-product {
+
+        width: 105px;
+
+        height: 145px;
+
+        font-size: 15px;
+
+    }
+
+
+    .product-info h3 {
+
+        font-size: 13px;
+
+    }
+
+
+    .process {
+
+        padding: 65px 18px;
+
+    }
+
+
+    .steps {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    footer {
+
+        padding: 30px 18px;
+
+        display: block;
+
+    }
+
+}
