@@ -1,186 +1,457 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>校園訂購系統</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>校園訂購</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<header class="site-header">
-  <div class="container nav">
-    <a href="index.html" class="logo">🏫 校園訂購系統</a>
+<!-- ===== 導覽列 ===== -->
+<header class="navbar">
+
+    <div class="logo">
+        CAMPUS
+        <span>ORDER</span>
+    </div>
 
     <nav>
-      <a href="#notice">公告</a>
-      <a href="#products">商品</a>
-      <a href="admin.html">管理者</a>
+        <a href="#" class="active">首頁</a>
+        <a href="#products">商品</a>
+        <a href="#notice">公告</a>
+        <a href="admin.html">管理</a>
     </nav>
-  </div>
+
+    <button class="cart-button">
+        🛒
+        <span>0</span>
+    </button>
+
 </header>
 
 
-<main>
+<!-- ===== 主視覺 ===== -->
+<section class="hero">
 
-  <!-- 首頁主視覺 -->
-  <section class="hero">
-    <div class="container hero-grid">
+    <div class="hero-content">
 
-      <div>
-        <span class="tag">115 學年度</span>
+        <p class="small-title">
+            115 ACADEMIC YEAR
+        </p>
 
         <h1>
-          校園紀念商品<br>
-          訂購系統
+            校園紀念商品
         </h1>
 
-        <p>
-          班級訂購更簡單，學生會統整更方便。
+        <p class="hero-text">
+            為校園生活留下值得收藏的紀念。
         </p>
 
-        <a href="order.html" class="btn primary">
-          開始訂購 →
+        <a href="#products" class="main-button">
+            開始選購
         </a>
-      </div>
+
+    </div>
+
+</section>
 
 
-      <div class="hero-card">
-        <span>📢 本期訂購</span>
+<!-- ===== 公告 ===== -->
+<section class="notice" id="notice">
 
-        <h2>2026 校園紀念商品</h2>
+    <div class="notice-title">
+        NOTICE
+    </div>
 
-        <div class="status open">
-          🟢 訂購中
-        </div>
+    <div class="notice-content">
+        <strong>115學年度校園紀念商品開始訂購</strong>
 
         <p>
-          訂購截止：
-          <strong>2026/10/05 23:59</strong>
+            訂購截止時間：
+            <b>2026 / 10 / 05 23:59</b>
         </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- 公告 -->
-  <section class="section" id="notice">
-
-    <div class="container">
-
-      <div class="section-title">
-        <span class="tag">NOTICE</span>
-        <h2>最新公告</h2>
-      </div>
-
-
-      <div class="notice-list">
-
-        <article class="notice-card">
-          <div class="notice-date">
-            09/20
-          </div>
-
-          <div>
-            <h3>校園紀念商品開始訂購</h3>
-            <p>
-              請各班班代於期限內完成班級訂購。
-            </p>
-          </div>
-        </article>
-
-
-        <article class="notice-card">
-          <div class="notice-date">
-            10/05
-          </div>
-
-          <div>
-            <h3>本次訂購截止</h3>
-            <p>
-              逾期後將無法新增或修改訂單。
-            </p>
-          </div>
-        </article>
-
-      </div>
-
     </div>
 
-  </section>
+</section>
 
 
-  <!-- 商品 -->
-  <section class="section light" id="products">
+<!-- ===== 商品 ===== -->
+<section class="products-section" id="products">
 
-    <div class="container">
-
-      <div class="section-title">
-        <span class="tag">PRODUCTS</span>
-        <h2>商品系列</h2>
-        <p>
-          訂購截止後商品仍會保留，但會自動變成不可訂購狀態。
-        </p>
-      </div>
-
-
-      <div id="homeProducts" class="product-grid">
-        <!-- JS 自動產生商品 -->
-      </div>
-
-
-      <div class="center">
-        <a href="order.html" class="btn primary">
-          前往訂購
-        </a>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- 提醒 -->
-  <section class="section">
-
-    <div class="container">
-
-      <div class="reminder">
-
-        <div class="reminder-icon">
-          💡
-        </div>
+    <div class="section-header">
 
         <div>
-          <h2>訂購前提醒</h2>
+            <p class="small-title">COLLECTION</p>
 
-          <p>
-            請確認班級、商品規格與數量後再送出。
-            送出後請保留訂單編號與修改憑證。
-          </p>
+            <h2>本次商品</h2>
         </div>
 
-      </div>
+        <div class="category-menu">
+
+            <button class="selected">
+                ALL
+            </button>
+
+            <button>
+                APPAREL
+            </button>
+
+            <button>
+                GOODS
+            </button>
+
+        </div>
 
     </div>
 
-  </section>
 
-</main>
+    <div class="product-grid">
+
+        <!-- 商品 1 -->
+        <article class="product">
+
+            <div class="product-image image-1">
+
+                <span class="product-number">
+                    01
+                </span>
+
+                <span class="fake-product">
+                    T-SHIRT
+                </span>
+
+            </div>
+
+            <div class="product-info">
+
+                <p class="product-category">
+                    APPAREL
+                </p>
+
+                <h3>
+                    校園紀念 T-shirt
+                </h3>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        NT$ 350
+                    </strong>
+
+                    <a href="order.html">
+                        查看商品 →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
 
 
-<footer class="footer">
+        <!-- 商品 2 -->
+        <article class="product">
 
-  <div class="container">
-    <p>© 2026 校園訂購系統</p>
-  </div>
+            <div class="product-image image-2">
+
+                <span class="product-number">
+                    02
+                </span>
+
+                <span class="fake-product">
+                    JACKET
+                </span>
+
+            </div>
+
+            <div class="product-info">
+
+                <p class="product-category">
+                    APPAREL
+                </p>
+
+                <h3>
+                    校園紀念外套
+                </h3>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        NT$ 900
+                    </strong>
+
+                    <a href="order.html">
+                        查看商品 →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 商品 3 -->
+        <article class="product">
+
+            <div class="product-image image-3">
+
+                <span class="product-number">
+                    03
+                </span>
+
+                <span class="fake-product">
+                    BAG
+                </span>
+
+            </div>
+
+            <div class="product-info">
+
+                <p class="product-category">
+                    GOODS
+                </p>
+
+                <h3>
+                    校園帆布袋
+                </h3>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        NT$ 280
+                    </strong>
+
+                    <a href="order.html">
+                        查看商品 →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 商品 4：已截止 -->
+        <article class="product closed">
+
+            <div class="product-image image-4">
+
+                <span class="product-number">
+                    04
+                </span>
+
+                <span class="fake-product">
+                    TOWEL
+                </span>
+
+                <div class="closed-label">
+                    🔒 訂購截止
+                </div>
+
+            </div>
+
+            <div class="product-info">
+
+                <p class="product-category">
+                    GOODS
+                </p>
+
+                <h3>
+                    紀念毛巾
+                </h3>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        NT$ 250
+                    </strong>
+
+                    <span class="disabled-text">
+                        已截止
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 商品 5 -->
+        <article class="product">
+
+            <div class="product-image image-5">
+
+                <span class="product-number">
+                    05
+                </span>
+
+                <span class="fake-product">
+                    POSTCARD
+                </span>
+
+            </div>
+
+            <div class="product-info">
+
+                <p class="product-category">
+                    GOODS
+                </p>
+
+                <h3>
+                    紀念明信片
+                </h3>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        NT$ 80
+                    </strong>
+
+                    <a href="order.html">
+                        查看商品 →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- 商品 6 -->
+        <article class="product">
+
+            <div class="product-image image-6">
+
+                <span class="product-number">
+                    06
+                </span>
+
+                <span class="fake-product">
+                    BADGE
+                </span>
+
+            </div>
+
+            <div class="product-info">
+
+                <p class="product-category">
+                    GOODS
+                </p>
+
+                <h3>
+                    校慶徽章
+                </h3>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        NT$ 100
+                    </strong>
+
+                    <a href="order.html">
+                        查看商品 →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ===== 訂購流程 ===== -->
+<section class="process">
+
+    <div class="process-title">
+
+        <p class="small-title">
+            HOW TO ORDER
+        </p>
+
+        <h2>
+            三個步驟完成訂購
+        </h2>
+
+    </div>
+
+
+    <div class="steps">
+
+        <div class="step">
+
+            <span>01</span>
+
+            <h3>
+                填寫班級資料
+            </h3>
+
+            <p>
+                選擇學年度、年級與班級。
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <span>02</span>
+
+            <h3>
+                選擇商品
+            </h3>
+
+            <p>
+                選擇商品、規格與數量。
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <span>03</span>
+
+            <h3>
+                確認訂單
+            </h3>
+
+            <p>
+                確認內容後送出訂單。
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===== Footer ===== -->
+<footer>
+
+    <div class="logo">
+        CAMPUS
+        <span>ORDER</span>
+    </div>
+
+    <p>
+        School Merchandise Ordering System
+    </p>
 
 </footer>
 
-
-<script src="js/main.js"></script>
 
 </body>
 </html>
