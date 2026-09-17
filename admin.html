@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>管理後台｜校園訂購系統</title>
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <a href="index.html" class="logo">
+      🏫 校園訂購系統
+    </a>
+
+    <nav>
+      <a href="index.html">
+        回首頁
+      </a>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section class="section">
+
+    <div class="container">
+
+
+      <!-- LOGIN -->
+
+      <div
+        id="loginBox"
+        class="login-card"
+      >
+
+        <span class="tag">
+          ADMIN
+        </span>
+
+        <h1>
+          學生會管理者登入
+        </h1>
+
+        <p class="muted">
+          只有管理者可以進入後台。
+        </p>
+
+
+        <div class="form-group">
+
+          <label>
+            帳號
+          </label>
+
+          <input
+            id="adminUsername"
+            type="text"
+            placeholder="請輸入管理者帳號"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            密碼
+          </label>
+
+          <input
+            id="adminPassword"
+            type="password"
+            placeholder="請輸入密碼"
+          >
+
+        </div>
+
+
+        <button
+          class="btn primary full-btn"
+          onclick="adminLogin()"
+        >
+          登入
+        </button>
+
+
+        <p class="demo-hint">
+          Prototype 測試帳號：
+          <br>
+          帳號：student-council
+          <br>
+          密碼：123456
+        </p>
+
+      </div>
+
+
+
+      <!-- DASHBOARD -->
+
+      <div
+        id="dashboard"
+        class="hidden"
+      >
+
+        <div class="dashboard-header">
+
+          <div>
+
+            <span class="tag">
+              ADMIN DASHBOARD
+            </span>
+
+            <h1>
+              管理後台
+            </h1>
+
+          </div>
+
+
+          <button
+            class="btn secondary"
+            onclick="adminLogout()"
+          >
+            登出
+          </button>
+
+        </div>
+
+
+
+        <!-- 統計 -->
+
+        <div class="stats-grid">
+
+          <div class="stat-card">
+
+            <span>
+              訂單數
+            </span>
+
+            <strong id="statOrders">
+              0
+            </strong>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <span>
+              商品數
+            </span>
+
+            <strong>
+              6
+            </strong>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <span>
+              訂購中
+            </span>
+
+            <strong>
+              4
+            </strong>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Tabs -->
+
+        <div class="admin-tabs">
+
+          <button
+            class="active"
+            onclick="showPanel('orders', this)"
+          >
+            訂單
+          </button>
+
+          <button
+            onclick="showPanel('products', this)"
+          >
+            商品
+          </button>
+
+          <button
+            onclick="showPanel('noticePanel', this)"
+          >
+            公告
+          </button>
+
+          <button
+            onclick="showPanel('exportPanel', this)"
+          >
+            匯出
+          </button>
+
+        </div>
+
+
+
+        <!-- 訂單 -->
+
+        <section
+          id="orders"
+          class="admin-panel"
+        >
+
+          <h2>
+            📋 班級訂單
+          </h2>
+
+          <div
+            id="adminOrders"
+            class="table-wrapper"
+          >
+          </div>
+
+        </section>
+
+
+
+        <!-- 商品 -->
+
+        <section
+          id="products"
+          class="admin-panel hidden"
+        >
+
+          <h2>
+            🛍️ 商品管理
+          </h2>
+
+          <div
+            id="adminProducts"
+            class="admin-product-list"
+          >
+          </div>
+
+        </section>
+
+
+
+        <!-- 公告 -->
+
+        <section
+          id="noticePanel"
+          class="admin-panel hidden"
+        >
+
+          <h2>
+            📢 公告管理
+          </h2>
+
+          <div class="form-group">
+
+            <label>
+              公告標題
+            </label>
+
+            <input
+              id="noticeTitle"
+              value="校園紀念商品開始訂購"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              公告內容
+            </label>
+
+            <textarea
+              id="noticeContent"
+              rows="5"
+            >請各班班代於期限內完成班級訂購。</textarea>
+
+          </div>
+
+
+          <button
+            class="btn primary"
+            onclick="saveNotice()"
+          >
+            儲存公告
+          </button>
+
+        </section>
+
+
+
+        <!-- 匯出 -->
+
+        <section
+          id="exportPanel"
+          class="admin-panel hidden"
+        >
+
+          <h2>
+            📊 訂單匯出
+          </h2>
+
+          <div class="export-grid">
+
+            <div class="export-card">
+
+              <h3>
+                全體訂單統計
+              </h3>
+
+              <p>
+                給廠商使用。統計每項商品與規格的總數量，
+                不包含價格。
+              </p>
+
+              <button
+                class="btn primary"
+                onclick="exportSummary()"
+              >
+                匯出 CSV
+              </button>
+
+            </div>
+
+
+            <div class="export-card">
+
+              <h3>
+                含價格訂單
+              </h3>
+
+              <p>
+                給學生會核對金額與收款使用。
+              </p>
+
+              <button
+                class="btn primary"
+                onclick="exportPriced()"
+              >
+                匯出 CSV
+              </button>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<script src="js/admin.js"></script>
+
+</body>
+
+</html>
