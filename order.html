@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>班級訂購｜校園訂購系統</title>
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <a href="index.html" class="logo">
+      🏫 校園訂購系統
+    </a>
+
+    <nav>
+      <a href="index.html">首頁</a>
+      <a href="index.html#products">商品</a>
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section class="section">
+
+    <div class="container narrow">
+
+      <!-- STEP 1 -->
+
+      <div id="classStep" class="step-card">
+
+        <span class="tag">
+          STEP 1
+        </span>
+
+        <h1>
+          班級資料
+        </h1>
+
+        <p class="muted">
+          請先輸入班級資料，再開始選購商品。
+        </p>
+
+
+        <div class="form-grid">
+
+          <div class="form-group">
+
+            <label>
+              學年度
+            </label>
+
+            <select id="year">
+              <option value="115">115</option>
+              <option value="116">116</option>
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              年級
+            </label>
+
+            <select id="grade">
+
+              <option value="">
+                請選擇
+              </option>
+
+              <option value="1">
+                高一
+              </option>
+
+              <option value="2">
+                高二
+              </option>
+
+              <option value="3">
+                高三
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              班級
+            </label>
+
+            <select id="classNumber">
+
+              <option value="">
+                請選擇
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group full">
+
+            <label>
+              班代姓名
+            </label>
+
+            <input
+              type="text"
+              id="representative"
+              placeholder="請輸入姓名"
+            >
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="btn primary full-btn"
+          onclick="startOrder()"
+        >
+          下一步：開始選購 →
+        </button>
+
+      </div>
+
+
+
+      <!-- STEP 2 -->
+
+      <div
+        id="shopStep"
+        class="hidden"
+      >
+
+        <div class="order-header">
+
+          <div>
+
+            <span class="tag">
+              STEP 2
+            </span>
+
+            <h1>
+              商品訂購
+            </h1>
+
+          </div>
+
+
+          <div class="deadline-box">
+
+            <span>
+              訂購截止
+            </span>
+
+            <strong>
+              2026/10/05 23:59
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="orderProducts"
+          class="product-grid"
+        >
+        </div>
+
+
+        <!-- 購物車 -->
+
+        <div class="cart-card">
+
+          <h2>
+            🛒 班級訂購清單
+          </h2>
+
+          <div id="cartItems">
+            尚未選擇商品
+          </div>
+
+
+          <div class="cart-total">
+
+            <span>
+              預估總金額
+            </span>
+
+            <strong id="cartTotal">
+              $0
+            </strong>
+
+          </div>
+
+
+          <button
+            class="btn primary full-btn"
+            onclick="reviewOrder()"
+          >
+            確認訂單 →
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- STEP 3 -->
+
+      <div
+        id="confirmStep"
+        class="hidden"
+      >
+
+        <div class="step-card">
+
+          <span class="tag">
+            STEP 3
+          </span>
+
+          <h1>
+            確認訂單
+          </h1>
+
+
+          <div
+            id="confirmInfo"
+            class="info-box"
+          >
+          </div>
+
+
+          <h2>
+            商品
+          </h2>
+
+
+          <div id="confirmItems">
+          </div>
+
+
+          <div class="cart-total">
+
+            <span>
+              總金額
+            </span>
+
+            <strong id="confirmTotal">
+              $0
+            </strong>
+
+          </div>
+
+
+          <div class="button-row">
+
+            <button
+              class="btn secondary"
+              onclick="backToShop()"
+            >
+              ← 返回修改
+            </button>
+
+
+            <button
+              class="btn primary"
+              onclick="submitOrder()"
+            >
+              送出訂單
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- STEP 4 -->
+
+      <div
+        id="doneStep"
+        class="hidden"
+      >
+
+        <div class="success-card">
+
+          <div class="success-icon">
+            ✓
+          </div>
+
+          <h1>
+            訂單已送出！
+          </h1>
+
+          <p>
+            請務必保留以下資訊。
+          </p>
+
+
+          <div class="code-box">
+
+            <span>
+              訂單編號
+            </span>
+
+            <strong id="orderCode">
+              -
+            </strong>
+
+          </div>
+
+
+          <div class="code-box">
+
+            <span>
+              修改憑證
+            </span>
+
+            <strong id="editToken">
+              -
+            </strong>
+
+          </div>
+
+
+          <p class="muted">
+            未來連接 Supabase 後，
+            可以使用修改憑證找回訂單。
+          </p>
+
+
+          <a
+            href="index.html"
+            class="btn primary"
+          >
+            回到首頁
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer class="footer">
+
+  <div class="container">
+
+    <p>
+      © 2026 校園訂購系統
+    </p>
+
+  </div>
+
+</footer>
+
+
+<script src="js/order.js"></script>
+
+</body>
+
+</html>
