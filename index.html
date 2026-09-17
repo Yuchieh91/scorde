@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校園訂購系統</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">🏫 校園訂購系統</a>
+
+    <nav>
+      <a href="#notice">公告</a>
+      <a href="#products">商品</a>
+      <a href="admin.html">管理者</a>
+    </nav>
+  </div>
+</header>
+
+
+<main>
+
+  <!-- 首頁主視覺 -->
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div>
+        <span class="tag">115 學年度</span>
+
+        <h1>
+          校園紀念商品<br>
+          訂購系統
+        </h1>
+
+        <p>
+          班級訂購更簡單，學生會統整更方便。
+        </p>
+
+        <a href="order.html" class="btn primary">
+          開始訂購 →
+        </a>
+      </div>
+
+
+      <div class="hero-card">
+        <span>📢 本期訂購</span>
+
+        <h2>2026 校園紀念商品</h2>
+
+        <div class="status open">
+          🟢 訂購中
+        </div>
+
+        <p>
+          訂購截止：
+          <strong>2026/10/05 23:59</strong>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 公告 -->
+  <section class="section" id="notice">
+
+    <div class="container">
+
+      <div class="section-title">
+        <span class="tag">NOTICE</span>
+        <h2>最新公告</h2>
+      </div>
+
+
+      <div class="notice-list">
+
+        <article class="notice-card">
+          <div class="notice-date">
+            09/20
+          </div>
+
+          <div>
+            <h3>校園紀念商品開始訂購</h3>
+            <p>
+              請各班班代於期限內完成班級訂購。
+            </p>
+          </div>
+        </article>
+
+
+        <article class="notice-card">
+          <div class="notice-date">
+            10/05
+          </div>
+
+          <div>
+            <h3>本次訂購截止</h3>
+            <p>
+              逾期後將無法新增或修改訂單。
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- 商品 -->
+  <section class="section light" id="products">
+
+    <div class="container">
+
+      <div class="section-title">
+        <span class="tag">PRODUCTS</span>
+        <h2>商品系列</h2>
+        <p>
+          訂購截止後商品仍會保留，但會自動變成不可訂購狀態。
+        </p>
+      </div>
+
+
+      <div id="homeProducts" class="product-grid">
+        <!-- JS 自動產生商品 -->
+      </div>
+
+
+      <div class="center">
+        <a href="order.html" class="btn primary">
+          前往訂購
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- 提醒 -->
+  <section class="section">
+
+    <div class="container">
+
+      <div class="reminder">
+
+        <div class="reminder-icon">
+          💡
+        </div>
+
+        <div>
+          <h2>訂購前提醒</h2>
+
+          <p>
+            請確認班級、商品規格與數量後再送出。
+            送出後請保留訂單編號與修改憑證。
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer class="footer">
+
+  <div class="container">
+    <p>© 2026 校園訂購系統</p>
+  </div>
+
+</footer>
+
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
